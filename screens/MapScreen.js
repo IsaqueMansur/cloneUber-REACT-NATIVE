@@ -1,15 +1,26 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import tw from 'tailwind-react-native-classnames';
 import Map from '../components/Map';
 import NavigateCard from '../components/NavigateCard';
 import RideOptionsCard from '../components/RideOptionsCard';
 import { createStackNavigator } from '@react-navigation/stack';
+import { Icon } from 'react-native-elements/dist/icons/Icon';
+import { useNavigation } from '@react-navigation/native';
 
 const MapScreen = () => {
   const Stack = createStackNavigator();
+  const navigation = useNavigation();
   return (
     <View>
+
+      <TouchableOpacity 
+        style={tw`absolute top-10 left-5 z-50 p-3 rounded-full bg-white shadow-lg`}
+        onPress={() => navigation.navigate('HomeScreen')}
+      >
+        <Icon name="menu" />
+      </TouchableOpacity>
+
       <View style={tw`h-1/2`}>
         <Map />
       </View>
